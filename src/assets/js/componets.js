@@ -4,5 +4,4 @@ const createMainBox = () => {
   const container = document.getElementById('container');
   container.appendChild(mainBox);
 }
-
 export default createMainBox;
