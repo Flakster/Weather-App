@@ -1,6 +1,33 @@
-$warning: rgb(221, 209, 170);
+$dayBottomColor: rgb(71, 71, 212);
+$dayTopColor: rgb(35, 35, 179);
+$nightBottomColor: rgb(8, 4, 87);
+$nigthTopColor: rgb(8, 7, 17);
 @import "~bootstrap/scss/bootstrap";
+
+body {
+  height: 100vh;
+}
+
 .mainBox {
   width: 80vw;
   height: 80vh;
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .weatherBox{
+    width: 100px;
+    height: 100px;
+    background: url('http://openweathermap.org/img/w/01n.png');  
+    background-size: cover;
+  }
+}
+
+.night {
+  background: linear-gradient(to top,$nightBottomColor,$nigthTopColor);
+}
+
+.day {
+  background: linear-gradient(to top,$dayBottomColor,$dayTopColor);
 }

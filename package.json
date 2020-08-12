@@ -40,6 +40,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "moment": "^2.27.0",
     "regenerator-runtime": "^0.13.7"
   }
 }

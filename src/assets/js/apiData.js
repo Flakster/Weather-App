@@ -1,4 +1,4 @@
-const askApiFor = async (place) => {
+const askAPIFor = async (place) => {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${place}&units=imperial&APPID=d67922c7514dc6d0e2d16efa21eee2f0`,
@@ -12,4 +12,4 @@ const askApiFor = async (place) => {
 }
 
 
-export default askApiFor;
+export default askAPIFor;
