@@ -2,34 +2,37 @@ import moment from 'moment';
 import {
   body, 
   drawMainBox,
-  changeBackground
+  changeBackground,
+  fillCityBox,
+  fillIconBox,
+  fillTemperatureBox
 } from './components'
 
 const render = async (data) =>{
   const objectData =  await data;
   console.log(objectData);
-  console.log(`${objectData.name}, ${objectData.sys.country}`);
-  console.log(`${objectData.main.temp} °F`);
-  console.log(`${objectData.weather[0].description}`);
+  const city = objectData.name;
+  const country = objectData.sys.country;
+  const temp = Math.round(objectData.main.temp);
+  const tempMax = Math.round(objectData.main.temp_max)  ;
+  const tempMin = Math.round(objectData.main.temp_min)  ;
+  const message = objectData.weather[0].description;
+  const icon= objectData.weather[0].icon;
   const timeZone = objectData.timezone;
  
   const offsetInMinutes = timeZone / 60;
   const currTime = moment().utcOffset(offsetInMinutes).format("h:mm A");
-
-
   const hours = parseInt(moment().utcOffset(offsetInMinutes).format("HH"));
-
-  console.log(`${currTime}`);
-  console.log(`Hours: ${hours}`)
 
   if (hours < 6 || hours > 18){
     changeBackground('night');
-    console.log('It\'s night time!');
    }else {
      changeBackground('day');
-    console.log('It\'s day time!');
   }
 
+  fillCityBox(city, country, currTime, message );
+  fillIconBox(icon);
+  fillTemperatureBox(temp, tempMax, tempMin);
 }
 
 

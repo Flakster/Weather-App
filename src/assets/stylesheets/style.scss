@@ -2,6 +2,8 @@ $dayBottomColor: rgb(71, 71, 212);
 $dayTopColor: rgb(35, 35, 179);
 $nightBottomColor: rgb(8, 4, 87);
 $nigthTopColor: rgb(8, 7, 17);
+$mediumFontSize: 2rem; 
+
 @import "~bootstrap/scss/bootstrap";
 
 body {
@@ -16,13 +18,70 @@ body {
     font-size: 1.5rem;
   }
 
+  .medium-text{
+    font-size: $mediumFontSize;
+  }
+
   .weatherBox{
-    width: 100px;
-    height: 100px;
-    background: url('http://openweathermap.org/img/w/01n.png');  
-    background-size: cover;
+    .cityBox{
+      width:55vw;
+    }
+    .iconBox{
+      width:10vw;
+      height:10vw;
+    }
+    .temperatureBox{
+      width:20vw;
+    }
   }
 }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  
+  input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: yellowgreen;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: cyan;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+
 
 .night {
   background: linear-gradient(to top,$nightBottomColor,$nigthTopColor);
