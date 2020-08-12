@@ -14,8 +14,9 @@ const render = async (data) =>{
   const city = objectData.name;
   const country = objectData.sys.country;
   const temp = Math.round(objectData.main.temp);
-  const tempMax = Math.round(objectData.main.temp_max)  ;
-  const tempMin = Math.round(objectData.main.temp_min)  ;
+  const tempMax = Math.round(objectData.main.temp_max);
+  const tempMin = Math.round(objectData.main.temp_min);
+  const humidity = objectData.main.humidity;
   const message = objectData.weather[0].description;
   const icon= objectData.weather[0].icon;
   const timeZone = objectData.timezone;
@@ -30,9 +31,9 @@ const render = async (data) =>{
      changeBackground('day');
   }
 
-  fillCityBox(city, country, currTime, message );
+  fillCityBox(city, country, currTime, message, humidity );
   fillIconBox(icon);
-  fillTemperatureBox(temp, tempMax, tempMin);
+  fillTemperatureBox(temp, tempMin, tempMax);
 }
 
 
