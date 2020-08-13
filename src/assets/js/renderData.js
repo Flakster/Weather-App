@@ -1,41 +1,39 @@
+/* eslint-disable import/no-cycle, no-unused-vars */
 import moment from 'moment';
+import regeneratorRuntime from 'regenerator-runtime';
 import {
-  body, 
-  drawMainBox,
   changeBackground,
   fillCityBox,
   fillIconBox,
-  fillTemperatureBox
-} from './components'
+  fillTemperatureBox,
+} from './components';
 
-const render = async (data) =>{
-  const objectData =  await data;
-  console.log(objectData);
+const render = async (data) => {
+  const objectData = await data;
   const city = objectData.name;
-  const country = objectData.sys.country;
+  const { country } = objectData.sys;
   const temp = Math.round(objectData.main.temp);
   const tempMax = Math.round(objectData.main.temp_max);
   const tempMin = Math.round(objectData.main.temp_min);
-  const humidity = objectData.main.humidity;
+  const { humidity } = objectData.main;
   const message = objectData.weather[0].description;
-  const icon= objectData.weather[0].icon;
+  const { icon } = objectData.weather[0];
   const timeZone = objectData.timezone;
- 
-  const offsetInMinutes = timeZone / 60;
-  const currTime = moment().utcOffset(offsetInMinutes).format("h:mm A");
-  const hours = parseInt(moment().utcOffset(offsetInMinutes).format("HH"));
 
-  if (hours < 6 || hours > 18){
+  const offsetInMinutes = timeZone / 60;
+  const currTime = moment().utcOffset(offsetInMinutes).format('h:mm A');
+  const hours = parseInt(moment().utcOffset(offsetInMinutes).format('HH'), 10);
+
+  if (hours < 6 || hours > 18) {
     changeBackground('night');
-   }else {
-     changeBackground('day');
+  } else {
+    changeBackground('day');
   }
 
-  fillCityBox(city, country, currTime, message, humidity );
+  fillCityBox(city, country, currTime, message, humidity);
   fillIconBox(icon);
   fillTemperatureBox(temp, tempMin, tempMax);
-}
-
+};
 
 
 export default render;

@@ -4,8 +4,8 @@ $nightBottomColor: rgb(8, 4, 87);
 $nigthTopColor: rgb(8, 7, 17);
 $colorF: rgb(23, 214, 221);
 $colorC: rgb(22, 112, 230);
-$mediumFontSize: 2rem; 
-$largeFontSize: 3.2rem; 
+$mediumFontSize: 2rem;
+$largeFontSize: 3.2rem;
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -17,48 +17,63 @@ body {
   height: 80vh;
   min-height: 400px;
 
-  @media (max-width: 576px) { width: 95vw;}
-  @media (min-width: 576px) and (max-width: 768px){ width: 90vw;}
-  @media (min-width: 768px) { width: 80vw; ;}
+  @media (max-width: 576px) { width: 95vw; }
+
+  @media (min-width: 576px) and (max-width: 768px) { width: 90vw; }
+
+  @media (min-width: 768px) { width: 80vw; }
 
   .title {
-    @media (max-width: 576px) { font-size: 1rem;}
-    @media (min-width: 576px) and (max-width: 768px){ font-size: 1.5rem ;}
-    @media (min-width: 768px) { font-size: 2rem ;}
+    @media (max-width: 576px) { font-size: 1rem; }
+
+    @media (min-width: 576px) and (max-width: 768px) { font-size: 1.5rem; }
+
+    @media (min-width: 768px) { font-size: 2rem; }
   }
 
-  .medium-text{
-    @media (max-width: 576px) { font-size: 1rem;}
-    @media (min-width: 576px) and (max-width: 768px){ font-size: 1.5rem ;}
-    @media (min-width: 768px) { font-size: 2rem ;}
+  .medium-text {
+    @media (max-width: 576px) { font-size: 1rem; }
+
+    @media (min-width: 576px) and (max-width: 768px) { font-size: 1.5rem; }
+
+    @media (min-width: 768px) { font-size: 2rem; }
   }
 
-  .large-text{
-    @media (max-width: 576px) { font-size: 1.5rem;}
-    @media (min-width: 576px) and (max-width: 768px){ font-size: 2.1rem;}
-    @media (min-width: 768px) { font-size: 3.2rem;} 
+  .large-text {
+    @media (max-width: 576px) { font-size: 1.5rem; }
+
+    @media (min-width: 576px) and (max-width: 768px) { font-size: 2.1rem; }
+
+    @media (min-width: 768px) { font-size: 3.2rem; }
   }
 
-  .weatherBox{
-    .cityBox{
-      @media (max-width: 768px){ width:40vw;}
-      @media (min-width: 768px) { width:50vw;} 
+  .weatherBox {
+    .cityBox {
+      @media (max-width: 768px) { width: 40vw; }
+
+      @media (min-width: 768px) { width: 50vw; }
     }
-    .iconBox{
-      width:10vw;
-      @media (max-width: 768px){ width:10vw;}
-      @media (min-width: 768px) { width:20vw;} 
-      height:10vw;
+
+    .iconBox {
+      width: 10vw;
+
+      @media (max-width: 768px) { width: 10vw; }
+
+      @media (min-width: 768px) { width: 20vw; }
+
+      height: 10vw;
       min-width: 80px;
       min-height: 80px;
     }
-    .temperatureBox{
-      
-      @media (max-width: 576px) { width:35vw;}
-      @media (min-width: 576px) and (max-width: 768px){ width:30vw;}
-      @media (min-width: 768px) { width:20vw; } 
 
+    .temperatureBox {
+      @media (max-width: 576px) { width: 35vw; }
+
+      @media (min-width: 576px) and (max-width: 768px) { width: 30vw; }
+
+      @media (min-width: 768px) { width: 20vw; }
     }
+
     .icons {
       width: 30px;
       height: 30px;
@@ -71,8 +86,8 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
-  
-  input { 
+
+  input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -86,11 +101,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $colorC ;
+  background-color: $colorC;
   transition: 200ms;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 26px;
@@ -109,7 +124,7 @@ input:focus + .slider {
   box-shadow: 0 0 1px blue;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   transform: translateX(26px);
 }
 
@@ -117,24 +132,24 @@ input:checked + .slider:before {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
 }
 
-
 .night {
-  background: linear-gradient(to top,$nightBottomColor,$nigthTopColor);
+  background: linear-gradient(to top, $nightBottomColor, $nigthTopColor);
 }
 
 .day {
-  background: linear-gradient(to top,$dayBottomColor,$dayTopColor);
+  background: linear-gradient(to top, $dayBottomColor, $dayTopColor);
 }
 
 footer {
   a {
     color: rgb(199, 194, 194);
   }
-  a:hover{
+
+  a:hover {
     color: rgb(99, 223, 240);
     text-decoration: none;
   }
