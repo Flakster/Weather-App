@@ -121,7 +121,7 @@ const fillCityBox = (city, country, hour, message, humidity) =>{
 const fillIconBox = (icon) =>{
   const url = `http://openweathermap.org/img/w/${icon}.png`
   const box = document.getElementById('iconBox');
-  box.style.background = `url("${url}") top/cover no-repeat`;
+  box.style.background = `url("${url}") center/cover no-repeat`;
 
 }
 
@@ -146,7 +146,7 @@ const fillTemperatureBox = (temp,tMin,tMax) =>{
   temperatureBox.appendChild(minMax);
 
 
-  switchBox.classList.add('mx-lg-5');
+  switchBox.classList.add('mx-lg-4');
 
   celsius.innerHTML = '°C';
   fahrenheit.innerHTML = '°F'
