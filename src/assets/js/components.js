@@ -165,7 +165,6 @@ const fillTemperatureBox = (temp, tMin, tMax) => {
   } else {
     current.innerHTML = `${temp} ${unit}`;
     minMax.innerHTML = `Min. ${tMin}${unit} <br>  Max. ${tMax}${unit}`;
-    unit = '°C';
   }
   current.classList.add('large-text', 'pl-lg-4');
   minMax.classList.add('medium-text', 'pl-lg-4');
