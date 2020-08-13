@@ -2,8 +2,8 @@ $dayBottomColor: rgb(97, 97, 230);
 $dayTopColor: rgb(35, 35, 179);
 $nightBottomColor: rgb(8, 4, 87);
 $nigthTopColor: rgb(8, 7, 17);
-$colorF: rgb(69, 69, 199);
-$colorC: rgb(51, 51, 114);
+$colorF: rgb(23, 214, 221);
+$colorC: rgb(22, 112, 230);
 $mediumFontSize: 2rem; 
 $largeFontSize: 3.2rem; 
 
@@ -87,7 +87,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: $colorC ;
-  transition: .4s;
+  transition: 200ms;
 }
 
 .slider:before {
@@ -98,7 +98,7 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: .4s;
+  transition: 200ms;
 }
 
 input:checked + .slider {
@@ -110,8 +110,6 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
@@ -130,4 +128,14 @@ input:checked + .slider:before {
 
 .day {
   background: linear-gradient(to top,$dayBottomColor,$dayTopColor);
+}
+
+footer {
+  a {
+    color: rgb(199, 194, 194);
+  }
+  a:hover{
+    color: rgb(99, 223, 240);
+    text-decoration: none;
+  }
 }

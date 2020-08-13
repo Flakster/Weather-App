@@ -7,8 +7,9 @@ import { max } from "moment";
 const body = document.getElementsByTagName('body')[0];
 const container = document.getElementById('container');
 const mainBox = document.createElement('div');
+const footer = document.createElement('footer');
 const background = new Image();
-const title = document.createElement('div')
+const title = document.createElement('h1')
 const textBoxArea = document.createElement('div');
 const cityInput = document.createElement('input');
 const weatherBox = document.createElement('div');
@@ -25,23 +26,31 @@ const celsius = document.createElement('span');
 const fahrenheit = document.createElement('span');
 let metric = false;
 let unit = '°F';
-let currentTemp;
-let minimumTemp;
-let maximumTemp;
+
+const tempCelsius = {
+  current: 0,
+  min:  0,
+  max: 0,
+}
+
+const tempFahrenheit = {
+  current: 0,
+  min: 0, 
+  current: 0
+}
 
 const drawMainBox = () =>{
   body.classList.add('day');
   background.src = skyLine;
   mainBox.style.background = `url('${skyLine.slice(4,skyLine.length)}') top/cover no-repeat`;
   mainBox.classList.add('mainBox','border','border-white','mx-auto','my-4', 'rounded', 'text-white','d-flex','flex-column');
-  container.appendChild(mainBox);
   const cityLabel = document.createElement('div');
-
+  
   title.classList.add('title','text-center');
   title.innerHTML='Weather app'
-
+  
   textBoxArea.classList.add('d-flex', 'flex-row', 'justify-content-center','align-items-center');
-
+  
   cityInput.classList.add('w-50')
   cityInput.addEventListener('keypress', function(e){
     if (e.keyCode !== 13){
@@ -52,27 +61,31 @@ const drawMainBox = () =>{
   });
   
   weatherBox.classList.add('weatherBox', 'd-flex', 'flex-row','pt-5');
-
+  
   cityLabel.classList.add('my-3', 'mr-3')
   cityLabel.innerHTML= 'City';
-
+  
   cityBox.classList.add('cityBox');
   iconBox.classList.add('iconBox');
   iconBox.setAttribute('id','iconBox');
   temperatureBox.classList.add('temperatureBox');
 
-  
+  footer.classList.add('text-center', 'text-white', 'footer');
+  footer.innerHTML=`© 2020 <a href='https://www.carlossantamaria.co' target='_blank'>Carlos Santamaría</a>`;
+    
   textBoxArea.appendChild(cityLabel);
   textBoxArea.appendChild(cityInput);
-
+  
   weatherBox.appendChild(cityBox);  
   weatherBox.appendChild(iconBox);  
   weatherBox.appendChild(temperatureBox);  
-    
+  
   mainBox.appendChild(title);
   mainBox.appendChild(textBoxArea);
-  
   mainBox.appendChild(weatherBox);
+  
+  container.appendChild(mainBox);
+  container.appendChild(footer);
 }
 
 const changeBackground = (time) => {
@@ -129,22 +142,24 @@ const fillTemperatureBox = (temp,tMin,tMax) =>{
   while(temperatureBox.firstChild){
     temperatureBox.removeChild(temperatureBox.firstChild);
   }
-  currentTemp = temp;
-  minimumTemp = tMin;
-  maximumTemp = tMax;
+  tempFahrenheit.current = temp;
+  tempFahrenheit.min = tMin;
+  tempFahrenheit.max= tMax;
+  tempCelsius.current= Math.round((temp - 32)*5/9);
+  tempCelsius.min= Math.round((tMin - 32)*5/9);
+  tempCelsius.max= Math.round((tMax - 32)*5/9);
 
   if (metric){
     switchUnits(metric);
   }else{
-    current.innerHTML=`${currentTemp} ${unit}`
-    minMax.innerHTML = `Min. ${minimumTemp}${unit} <br>  Max. ${maximumTemp}${unit}`;
+    current.innerHTML=`${temp} ${unit}`
+    minMax.innerHTML = `Min. ${tMin}${unit} <br>  Max. ${tMax}${unit}`;
   }
   current.classList.add('large-text','pl-lg-4');
   minMax.classList.add('medium-text', 'pl-lg-4');
 
   temperatureBox.appendChild(current);
   temperatureBox.appendChild(minMax);
-
 
   switchBox.classList.add('mx-lg-4');
 
@@ -155,7 +170,6 @@ const fillTemperatureBox = (temp,tMin,tMax) =>{
 
   inputSwitch.setAttribute('type','checkbox');
   metric = inputSwitch.checked
-  console.log(`metric units: ${metric}`)
 
   spanSwitch.classList.add('slider', 'round')
 
@@ -164,7 +178,6 @@ const fillTemperatureBox = (temp,tMin,tMax) =>{
 
   inputSwitch.addEventListener('change', function(e){
     metric = inputSwitch.checked;
-    console.log(`cambiando a: ${metric}`);
     switchUnits(metric);
   });
 
@@ -176,18 +189,15 @@ const fillTemperatureBox = (temp,tMin,tMax) =>{
 
 const switchUnits = (metric) =>{
   if (metric){
-    currentTemp = Math.round((currentTemp - 32)*5/9);
-    minimumTemp = Math.round((minimumTemp - 32)*5/9);
-    maximumTemp = Math.round((maximumTemp - 32)*5/9);
+    current.innerHTML=`${tempCelsius.current} ${unit}`
+    minMax.innerHTML = `Min. ${tempCelsius.min}${unit} <br>  Max. ${tempCelsius.max}${unit}`;
     unit = '°C'
   }else{
-    currentTemp = Math.round(currentTemp*5/9 + 32);
-    minimumTemp = Math.round(minimumTemp*5/9 + 32);
-    maximumTemp = Math.round(maximumTemp*5/9 + 32);
+    current.innerHTML=`${tempFahrenheit.current} ${unit}`
+    minMax.innerHTML = `Min. ${tempFahrenheit.min}${unit} <br>  Max. ${tempFahrenheit.max}${unit}`;
     unit = '°F'
   }
-  current.innerHTML=`${currentTemp} ${unit}`
-  minMax.innerHTML = `Min. ${minimumTemp}${unit} <br>  Max. ${maximumTemp}${unit}`;
+
 }
 
 export {
