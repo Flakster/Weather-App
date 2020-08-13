@@ -95,21 +95,21 @@ const fillCityBox = (city, country, hour, message, humidity) =>{
   }
   const place = document.createElement('div');
   const time = document.createElement('div');
-  time.classList.add('medium-text', 'pl-5');
+  time.classList.add('medium-text', 'pl-lg-5', 'pl-3');
   const msg = document.createElement('div');
   const humidityBox = document.createElement('div');
   humidityBox.classList.add('d-flex', 'flex-row', 'align-items-center');
   const humidityIcon = new Image();
   humidityIcon.src = imgHumidity.slice(4,imgHumidity.length);
-  humidityIcon.classList.add('mx-5')
+  humidityIcon.classList.add('mx-lg-5','mx-3')
   const humidityValue = document.createElement('div');
   humidityValue.innerHTML = `${humidity} %`;
   humidityValue.classList.add('medium-text', 'my-10');
   humidityBox.appendChild(humidityIcon);
   humidityBox.appendChild(humidityValue);
-  msg.classList.add('medium-text', 'pl-5');
+  msg.classList.add('medium-text', 'pl-lg-5', 'pl-3');
   place.innerHTML = `${city}, ${country}`;
-  place.classList.add('display-4', 'pl-5' );
+  place.classList.add('large-text', 'pl-lg-5','pl-3' );
   time.innerHTML = hour;
   msg.innerHTML = message; 
   cityBox.appendChild(place);
@@ -139,19 +139,19 @@ const fillTemperatureBox = (temp,tMin,tMax) =>{
     current.innerHTML=`${currentTemp} ${unit}`
     minMax.innerHTML = `Min. ${minimumTemp}${unit} <br>  Max. ${maximumTemp}${unit}`;
   }
-  current.classList.add('display-4','pl-4');
-  minMax.classList.add('medium-text', 'pl-4');
+  current.classList.add('large-text','pl-lg-4');
+  minMax.classList.add('medium-text', 'pl-lg-4');
 
   temperatureBox.appendChild(current);
   temperatureBox.appendChild(minMax);
 
 
-  switchBox.classList.add('mx-5',);
+  switchBox.classList.add('mx-lg-5');
 
   celsius.innerHTML = '°C';
   fahrenheit.innerHTML = '°F'
   
-  labelSwitch.classList.add('switch', 'mx-2');
+  labelSwitch.classList.add('switch', 'mx-lg-2');
 
   inputSwitch.setAttribute('type','checkbox');
   metric = inputSwitch.checked

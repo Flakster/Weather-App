@@ -5,6 +5,7 @@ $nigthTopColor: rgb(8, 7, 17);
 $colorF: rgb(69, 69, 199);
 $colorC: rgb(51, 51, 114);
 $mediumFontSize: 2rem; 
+$largeFontSize: 3.2rem; 
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -13,28 +14,49 @@ body {
 }
 
 .mainBox {
-  width: 80vw;
   height: 80vh;
   min-height: 400px;
 
+  @media (max-width: 576px) { width: 95vw;}
+  @media (min-width: 576px) and (max-width: 768px){ width: 90vw;}
+  @media (min-width: 768px) { width: 80vw; ;}
+
   .title {
-    font-size: 1.5rem;
+    @media (max-width: 576px) { font-size: 1rem;}
+    @media (min-width: 576px) and (max-width: 768px){ font-size: 1.5rem ;}
+    @media (min-width: 768px) { font-size: 2rem ;}
   }
 
   .medium-text{
-    font-size: $mediumFontSize;
+    @media (max-width: 576px) { font-size: 1rem;}
+    @media (min-width: 576px) and (max-width: 768px){ font-size: 1.5rem ;}
+    @media (min-width: 768px) { font-size: 2rem ;}
+  }
+
+  .large-text{
+    @media (max-width: 576px) { font-size: 1.5rem;}
+    @media (min-width: 576px) and (max-width: 768px){ font-size: 2.1rem;}
+    @media (min-width: 768px) { font-size: 3.2rem;} 
   }
 
   .weatherBox{
     .cityBox{
-      width:55vw;
+      @media (max-width: 768px){ width:40vw;}
+      @media (min-width: 768px) { width:50vw;} 
     }
     .iconBox{
       width:10vw;
+      @media (max-width: 768px){ width:10vw;}
+      @media (min-width: 768px) { width:20vw;} 
       height:10vw;
+      min-width: 80px;
+      min-height: 80px;
     }
     .temperatureBox{
-      width:20vw;
+      
+      @media (max-width: 576px) { width:35vw;}
+      @media (min-width: 576px) and (max-width: 768px){ width:30vw;}
+      @media (min-width: 768px) { width:20vw; } 
     }
     .icons {
       width: 30px;
