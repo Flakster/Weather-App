@@ -140,13 +140,13 @@ const fillIconBox = (icon) => {
 
 const switchUnits = (metric) => {
   if (metric) {
+    unit = '°C';
     current.innerHTML = `${tempCelsius.current} ${unit}`;
     minMax.innerHTML = `Min. ${tempCelsius.min}${unit} <br>  Max. ${tempCelsius.max}${unit}`;
-    unit = '°C';
   } else {
+    unit = '°F';
     current.innerHTML = `${tempFahrenheit.current} ${unit}`;
     minMax.innerHTML = `Min. ${tempFahrenheit.min}${unit} <br>  Max. ${tempFahrenheit.max}${unit}`;
-    unit = '°F';
   }
 };
 
@@ -160,12 +160,12 @@ const fillTemperatureBox = (temp, tMin, tMax) => {
   tempCelsius.current = Math.round(((temp - 32) * 5) / 9);
   tempCelsius.min = Math.round(((tMin - 32) * 5) / 9);
   tempCelsius.max = Math.round(((tMax - 32) * 5) / 9);
-
   if (metric) {
     switchUnits(metric);
   } else {
     current.innerHTML = `${temp} ${unit}`;
     minMax.innerHTML = `Min. ${tMin}${unit} <br>  Max. ${tMax}${unit}`;
+    unit = '°C';
   }
   current.classList.add('large-text', 'pl-lg-4');
   minMax.classList.add('medium-text', 'pl-lg-4');
