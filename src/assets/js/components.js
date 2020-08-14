@@ -4,6 +4,7 @@ import render from './renderData';
 import askAPIFor from './apiData';
 import imgHumidity from '../images/humidity.png';
 import skyLine from '../images/skyline.png';
+import location from '../images/location.png';
 
 const body = document.getElementsByTagName('body')[0];
 const container = document.getElementById('container');
@@ -108,6 +109,7 @@ const fillCityBox = (city, country, hour, message, humidity, linkMap) => {
     cityBox.removeChild(cityBox.firstChild);
   }
   const place = document.createElement('div');
+  const map = location.slice(4,location.length);
   const time = document.createElement('div');
   time.classList.add('medium-text', 'pl-lg-5', 'pl-3');
   const msg = document.createElement('div');
@@ -122,9 +124,9 @@ const fillCityBox = (city, country, hour, message, humidity, linkMap) => {
   humidityBox.appendChild(humidityIcon);
   humidityBox.appendChild(humidityValue);
   msg.classList.add('medium-text', 'pl-lg-5', 'pl-3');
-  place.innerHTML = `${city}, ${country}`;
+  place.innerHTML = `${city}, ${country} <a href='${linkMap}' target='_blank'><img src=${map}></a>`;
   place.classList.add('large-text', 'pl-lg-5', 'pl-3');
-  time.innerHTML = `${hour}  <a href='${linkMap}' target='_blank'>Map</a>`;
+  time.innerHTML = hour;
   msg.innerHTML = message;
   cityBox.appendChild(place);
   cityBox.appendChild(time);
