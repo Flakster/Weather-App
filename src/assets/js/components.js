@@ -109,7 +109,7 @@ const fillCityBox = (city, country, hour, message, humidity, linkMap) => {
     cityBox.removeChild(cityBox.firstChild);
   }
   const place = document.createElement('div');
-  const map = location.slice(4,location.length);
+  const map = location.slice(4, location.length);
   const time = document.createElement('div');
   time.classList.add('medium-text', 'pl-lg-5', 'pl-3');
   const msg = document.createElement('div');
