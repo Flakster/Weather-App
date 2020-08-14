@@ -19,18 +19,17 @@ const render = async (data) => {
   const message = objectData.weather[0].description;
   const { icon } = objectData.weather[0];
   const timeZone = objectData.timezone;
-
   const offsetInMinutes = timeZone / 60;
   const currTime = moment().utcOffset(offsetInMinutes).format('h:mm A');
   const hours = parseInt(moment().utcOffset(offsetInMinutes).format('HH'), 10);
-
+  const mapLink = `https://www.google.com/maps/@?api=1&map_action=map&center=${objectData.coord.lat},${objectData.coord.lon}&zoom=12&basemap=terrain`;
   if (hours < 6 || hours > 18) {
     changeBackground('night');
   } else {
     changeBackground('day');
   }
 
-  fillCityBox(city, country, currTime, message, humidity);
+  fillCityBox(city, country, currTime, message, humidity, mapLink);
   fillIconBox(icon);
   fillTemperatureBox(temp, tempMin, tempMax);
 };

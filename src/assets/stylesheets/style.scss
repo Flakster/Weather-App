@@ -13,6 +13,17 @@ body {
   height: 100vh;
 }
 
+footer {
+  a {
+    color: rgb(199, 194, 194);
+  }
+
+  a:hover {
+    color: rgb(99, 223, 240);
+    text-decoration: none;
+  }
+}
+
 .mainBox {
   height: 80vh;
   min-height: 400px;
@@ -52,6 +63,10 @@ body {
       @media (max-width: 768px) { width: 40vw; }
 
       @media (min-width: 768px) { width: 50vw; }
+
+      a:hover {
+        text-decoration: none;
+      }
     }
 
     .iconBox {
@@ -142,15 +157,4 @@ input:checked + .slider::before {
 
 .day {
   background: linear-gradient(to top, $dayBottomColor, $dayTopColor);
-}
-
-footer {
-  a {
-    color: rgb(199, 194, 194);
-  }
-
-  a:hover {
-    color: rgb(99, 223, 240);
-    text-decoration: none;
-  }
 }

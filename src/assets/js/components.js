@@ -103,7 +103,7 @@ const changeBackground = (time) => {
   }
 };
 
-const fillCityBox = (city, country, hour, message, humidity) => {
+const fillCityBox = (city, country, hour, message, humidity, linkMap) => {
   while (cityBox.firstChild) {
     cityBox.removeChild(cityBox.firstChild);
   }
@@ -124,7 +124,7 @@ const fillCityBox = (city, country, hour, message, humidity) => {
   msg.classList.add('medium-text', 'pl-lg-5', 'pl-3');
   place.innerHTML = `${city}, ${country}`;
   place.classList.add('large-text', 'pl-lg-5', 'pl-3');
-  time.innerHTML = hour;
+  time.innerHTML = `${hour}  <a href='${linkMap}' target='_blank'>Map</a>`;
   msg.innerHTML = message;
   cityBox.appendChild(place);
   cityBox.appendChild(time);
