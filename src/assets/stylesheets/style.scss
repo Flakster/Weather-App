@@ -1,0 +1,160 @@
+$dayBottomColor: rgb(97, 97, 230);
+$dayTopColor: rgb(35, 35, 179);
+$nightBottomColor: rgb(8, 4, 87);
+$nigthTopColor: rgb(8, 7, 17);
+$colorF: rgb(23, 214, 221);
+$colorC: rgb(22, 112, 230);
+$mediumFontSize: 2rem;
+$largeFontSize: 3.2rem;
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  height: 100vh;
+}
+
+footer {
+  a {
+    color: rgb(199, 194, 194);
+  }
+
+  a:hover {
+    color: rgb(99, 223, 240);
+    text-decoration: none;
+  }
+}
+
+.mainBox {
+  height: 80vh;
+  min-height: 400px;
+
+  @media (max-width: 576px) { width: 95vw; }
+
+  @media (min-width: 576px) and (max-width: 768px) { width: 90vw; }
+
+  @media (min-width: 768px) { width: 80vw; }
+
+  .title {
+    @media (max-width: 576px) { font-size: 1rem; }
+
+    @media (min-width: 576px) and (max-width: 768px) { font-size: 1.5rem; }
+
+    @media (min-width: 768px) { font-size: 2rem; }
+  }
+
+  .medium-text {
+    @media (max-width: 576px) { font-size: 1rem; }
+
+    @media (min-width: 576px) and (max-width: 768px) { font-size: 1.5rem; }
+
+    @media (min-width: 768px) { font-size: 2rem; }
+  }
+
+  .large-text {
+    @media (max-width: 576px) { font-size: 1.5rem; }
+
+    @media (min-width: 576px) and (max-width: 768px) { font-size: 2.1rem; }
+
+    @media (min-width: 768px) { font-size: 3.2rem; }
+  }
+
+  .weatherBox {
+    .cityBox {
+      @media (max-width: 768px) { width: 40vw; }
+
+      @media (min-width: 768px) { width: 50vw; }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    .iconBox {
+      width: 10vw;
+
+      @media (max-width: 768px) { width: 10vw; }
+
+      @media (min-width: 768px) { width: 20vw; }
+
+      height: 10vw;
+      min-width: 80px;
+      min-height: 80px;
+    }
+
+    .temperatureBox {
+      @media (max-width: 576px) { width: 35vw; }
+
+      @media (min-width: 576px) and (max-width: 768px) { width: 30vw; }
+
+      @media (min-width: 768px) { width: 20vw; }
+    }
+
+    .icons {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $colorC;
+  transition: 200ms;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 200ms;
+}
+
+input:checked + .slider {
+  background-color: $colorF;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px blue;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.night {
+  background: linear-gradient(to top, $nightBottomColor, $nigthTopColor);
+}
+
+.day {
+  background: linear-gradient(to top, $dayBottomColor, $dayTopColor);
+}
