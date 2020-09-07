@@ -38,6 +38,10 @@ To get a local copy up and running follow these simple example steps:
 
 ## See a live demo [Here](https://xenodochial-joliot-b5c28e.netlify.app/)
 
+## Potential future features
+
+ - By default show the weather in the current location of the user
+
 ## Show your support
 Give a ⭐️ if you like this project!
  
