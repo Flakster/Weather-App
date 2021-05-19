@@ -54,5 +54,5 @@ This project is [MIT](https://github.com/Flakster/Weather-App/blob/development/L
 
 * Twitter: [@Flakster](https://twitter.com/Flakster )
 * Github: [@Flakster](https://github.com/Flakster)
-* Linkedin: [@cjsb](https://www.linkedin.com/in/cjsb)
+* Linkedin: [https://www.linkedin.com/in/cjsb](https://www.linkedin.com/in/cjsb)
 * Email: contact@carlossantamaria.co
